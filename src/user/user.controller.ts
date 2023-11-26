@@ -6,7 +6,9 @@ import { GetUser } from 'src/auth/decorator/get-user.decorator';
 import { JwtGuard } from 'src/auth/guard';
 import { UserService } from './user.service';
 import { EditUserDto } from './dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags("Users")
 @UseGuards(JwtGuard)
 @Controller('users')
 export class UserController {
@@ -15,10 +17,10 @@ export class UserController {
 
     }
    
-    @Get('me')
-    getMe(@GetUser() user: User){
-        return user;
-   }
+//     @Get('me')
+//     getMe(@GetUser() user: User){
+//         return user;
+//    }
     // getMe(@GetUser() user: User, @GetUser("email") email:string){
     //      return user;
     // }
